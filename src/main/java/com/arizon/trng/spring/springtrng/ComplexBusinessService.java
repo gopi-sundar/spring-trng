@@ -1,13 +1,14 @@
 package com.arizon.trng.spring.springtrng;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ComplexBusinessService {
 
-	// ComplexBusinessService is now loosely coupled with SortAlgorithm
-	private SortAlgorithm sortAlgorithm = null;// = new BubbleSortAlgorithm();
+	// This is called dependency injection
+	@Autowired
+	private SortAlgorithm sortAlgorithm;
 
-	public ComplexBusinessService(SortAlgorithm sortAlgorithm) {
-		super();
-		this.sortAlgorithm = sortAlgorithm;
-	}
 
 }
