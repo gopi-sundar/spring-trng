@@ -2,14 +2,13 @@ package com.arizon.spring.basics.springtrng;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.arizon.spring.basics.componentscan.ComponentDAO;
 
-@SpringBootApplication
+@Configuration
 @ComponentScan("com.arizon.spring.basics.componentscan")
 public class SpringTrngComponentScanApplication {
 
@@ -18,12 +17,14 @@ public class SpringTrngComponentScanApplication {
 	public static void main(String[] args) {
 
 		// Application Context
-		ApplicationContext applicationContext = SpringApplication.run(SpringTrngComponentScanApplication.class, args);
+		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+				SpringTrngComponentScanApplication.class)) {
 
-		ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
+			ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
 
-		LOGGER.info("{}", componentDAO);
-		LOGGER.info("{}", componentDAO.getJdbcConnection());
+			LOGGER.info("{}", componentDAO);
+			LOGGER.info("{}", componentDAO.getJdbcConnection());
+		}
 
 	}
 }

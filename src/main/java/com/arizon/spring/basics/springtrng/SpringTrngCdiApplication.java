@@ -2,13 +2,14 @@ package com.arizon.spring.basics.springtrng;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.arizon.spring.basics.springtrng.cdi.SomeCdi;
 
-@SpringBootApplication
+@Configuration
+@ComponentScan
 public class SpringTrngCdiApplication {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(SpringTrngCdiApplication.class);
@@ -16,11 +17,12 @@ public class SpringTrngCdiApplication {
 	public static void main(String[] args) {
 
 		// Application Context
-		ApplicationContext applicationContext = SpringApplication.run(SpringTrngCdiApplication.class, args);
+		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+				SpringTrngCdiApplication.class)) {
 
-		SomeCdi someCdi = applicationContext.getBean(SomeCdi.class);
+			SomeCdi someCdi = applicationContext.getBean(SomeCdi.class);
 
-
-		LOGGER.info("{}", someCdi);
+			LOGGER.info("{}", someCdi);
+		}
 	}
 }
