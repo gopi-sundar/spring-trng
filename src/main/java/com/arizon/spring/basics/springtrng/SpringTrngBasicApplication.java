@@ -1,8 +1,10 @@
-package com.arizon.trng.spring.springtrng.basic;
+package com.arizon.spring.basics.springtrng;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import com.arizon.spring.basics.springtrng.basic.BinarySearchImpl;
 
 @SpringBootApplication
 public class SpringTrngBasicApplication {

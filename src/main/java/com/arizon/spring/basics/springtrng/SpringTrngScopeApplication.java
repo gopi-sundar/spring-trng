@@ -1,10 +1,12 @@
-package com.arizon.trng.spring.springtrng.scope;
+package com.arizon.spring.basics.springtrng;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import com.arizon.spring.basics.springtrng.scope.PersonDAO;
 
 @SpringBootApplication
 public class SpringTrngScopeApplication {

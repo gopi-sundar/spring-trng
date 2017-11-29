@@ -1,4 +1,4 @@
-package com.arizon.trng.spring.springtrng.scope;
+package com.arizon.spring.basics.springtrng.scope;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;

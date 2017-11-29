@@ -1,4 +1,4 @@
-package com.arizon.trng.spring.springtrng.basic;
+package com.arizon.spring.basics.springtrng.basic;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
